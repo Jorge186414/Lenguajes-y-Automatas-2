@@ -54,4 +54,3 @@ resultado.append(estado_inicial)
 resultado.reverse()
 print(resultado)
 
-# Debe imprimir [CDMX], [CHIHUAHUA]. [ZACATECAS]
