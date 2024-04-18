@@ -1,7 +1,12 @@
 # Puzzle lineal con Busqueda en Amplitud
 
 from Arbol import Nodo
+from flask import Flask
 
+app = Flask(__name__)
+
+
+@app.route('/')
 def buscar_solucion_BFS(estado_inicial, solucion):
     solucionado = False
     nodos_visitados = []
@@ -41,6 +46,7 @@ def buscar_solucion_BFS(estado_inicial, solucion):
             nodo.set_hijos([hijo_izquierdo, hijo_central, hijo_derecho])
 
 if __name__ == "__main__":
+    app.run(debug=True)
     estado_inicial = [4,2,3,1]
     solucion = [1,2,3,4]
     nodo_solucion = buscar_solucion_BFS(estado_inicial, solucion)
