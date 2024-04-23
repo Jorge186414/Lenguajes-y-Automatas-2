@@ -41,5 +41,3 @@ def imprimir():
     resultado.append(estado_inicial)
     resultado.reverse()
     return resultado
-
-print(imprimir())
