@@ -1,10 +1,6 @@
 # Puzzle lineal con Busqueda en Amplitud
 
 from Arbol import Nodo
-from flask import Flask
-
-app = Flask(__name__)
-
 
 def buscar_solucion_BFS(estado_inicial, solucion):
     solucionado = False
@@ -44,8 +40,7 @@ def buscar_solucion_BFS(estado_inicial, solucion):
             # Ya que tenemos los hijos nos faltaba asignarlos usando el metodo set_hijos() de Arbol.py
             nodo.set_hijos([hijo_izquierdo, hijo_central, hijo_derecho])
 
-if __name__ == "__main__":
-    app.run(debug=True)
+def imprimir():
     estado_inicial = [4,2,3,1]
     solucion = [1,2,3,4]
     nodo_solucion = buscar_solucion_BFS(estado_inicial, solucion)
@@ -59,4 +54,5 @@ if __name__ == "__main__":
     # Estas 3 lineas estan mal indentadas, si no se imprimiria muchas veces
     resultado.append(estado_inicial)
     resultado.reverse()
-    print(resultado)
+    return resultado
+
