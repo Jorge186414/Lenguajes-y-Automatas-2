@@ -53,4 +53,4 @@ def imprimir():
     # Estas 3 lineas estan mal indentadas, si no se imprimiria muchas veces
     resultado.append(estado_inicial)
     resultado.reverse()
-    print(resultado)
+    return resultado
