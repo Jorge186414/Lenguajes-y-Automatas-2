@@ -27,21 +27,6 @@
         </div>
     </div>
 
-    <script>
-        function obtenerResultado() {
-
-            // Realizar la solicitud GET a la ruta de Flask
-            fetch('/puzzle-lineal')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("resultado").textContent = JSON.stringify(data.Resultado) // Mostrar la respuesta del servidor
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-    </script>
-
     <script src="./static/functions.js"></script>
 </body>
 
