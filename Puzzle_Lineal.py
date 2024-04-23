@@ -6,7 +6,6 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/')
 def buscar_solucion_BFS(estado_inicial, solucion):
     solucionado = False
     nodos_visitados = []
