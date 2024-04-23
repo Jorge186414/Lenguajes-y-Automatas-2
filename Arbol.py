@@ -45,4 +45,3 @@ class Nodo:
 	def __str__(self):
 		return str(self.get_datos())	
 	
-	print("Ejecucion terminada")
