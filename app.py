@@ -39,7 +39,7 @@ def dfs_Recursivo():
 # Route a DFS iterativo
 @app.route('/busqueda-en-profundidad-iterativo', methods=['GET'])
 def dfs_Iterativo():
-    resultado_dfs_iterativo = DFS_Iterativo
+    resultado_dfs_iterativo = DFS_Iterativo.imprimir()
     return jsonify({"Resultado": resultado_dfs_iterativo})
 
 # Route a dijkstra
