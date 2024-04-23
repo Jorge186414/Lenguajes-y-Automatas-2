@@ -25,7 +25,8 @@ def buscar_solucion_BFS(conexiones, estado_inicial, solucion):
 
             nodo.set_hijos(lista_hijos)
 
-if __name__ == "__main__":
+def imprimir():
+
     conexiones = {
         'CDMX': {'SLP', 'MEXICALI', 'CHIHUAHUA'},
         'ZAPOPAN': {'ZACATECAS', 'MEXICALI'},
@@ -39,18 +40,18 @@ if __name__ == "__main__":
         'CHIHUAHUA': {'MICHOACAN', 'ZACATECAS', 'MEXICALI', 'CDMX', 'CHIAPAS'}
     }
 
-estado_inicial = 'CDMX'
-solucion = 'ZACATECAS'
-nodo_solucion = buscar_solucion_BFS(conexiones, estado_inicial, solucion)
+    estado_inicial = 'CDMX'
+    solucion = 'ZACATECAS'
+    nodo_solucion = buscar_solucion_BFS(conexiones, estado_inicial, solucion)
 
-# Mostrar resultado
-resultado = []
-nodo = nodo_solucion
-while nodo.get_padre() != None:
-    resultado.append(nodo.get_datos())
-    nodo = nodo.get_padre()
+    # Mostrar resultado
+    resultado = []
+    nodo = nodo_solucion
+    while nodo.get_padre() != None:
+        resultado.append(nodo.get_datos())
+        nodo = nodo.get_padre()
 
-resultado.append(estado_inicial)
-resultado.reverse()
-print(resultado)
-
+    resultado.append(estado_inicial)
+    resultado.reverse()
+    return resultado
+print(imprimir())
