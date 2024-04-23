@@ -1,8 +1,8 @@
-# Vuelos con busqueda con profundidad iterativa.
+#vuelos con busqueda de profundidad iterativa
 from Arbol import Nodo
 
 def DFS_prof_iter(nodo, solucion):
-    for limite in range(0, 100):
+    for limite in range(0, 100): # Limitar la profundidad temporal
         visitados = []
         sol = buscar_solucion_DFS_Rec(nodo, solucion, visitados, limite)
         if sol != None:
@@ -14,30 +14,33 @@ def buscar_solucion_DFS_Rec(nodo, solucion, visitados, limite):
         if nodo.get_datos() == solucion:
             return nodo
         else:
-            # Expandir nodos hijo (ciuades con conexion)
+            # Expandir nodos hijo (Ciudades con Conexion)
             dato_nodo = nodo.get_datos()
             lista_hijos = []
+            
             for un_hijo in conexiones[dato_nodo]:
                 hijo = Nodo(un_hijo)
                 if not hijo.en_lista(visitados):
                     lista_hijos.append(hijo)
-
+        
             nodo.set_hijos(lista_hijos)
 
             for nodo_hijo in nodo.get_hijos():
-                if nodo_hijo.get_datos() in visitados:
-                    # Llamada recursiva
+                if not nodo_hijo.get_datos() in visitados:
+                    # Llamada Recursiva
                     sol = buscar_solucion_DFS_Rec(nodo_hijo, solucion, visitados, limite-1)
                     if sol != None:
                         return sol
-        return None
+    return None
 
-    if __name__ == "_main_":
-        conexiones = {
-            'EDO.MÉX':{'QRO','SLP','SONORA'},
+def imprimir():
+    global conexiones
+    conexiones = {
+            'EDO.MEX':{'QRO','SLP','SONORA'},
             'PUEBLA':{'HIDALGO','SLP'},
             'CDMX':{'MICHOACAN'},
             'MICHOACAN':{'SONORA'},
+            'GUADALAJARA':{'HIDALGO'},
             'SLP':{'QRO','PUEBLA','EDO.MEX','SONORA','GUADALAJARA'},
             'QRO':{'EDO.MEX','SLP'},
             'HIDALGO':{'PUEBLA','GUADALAJARA','SONORA'},
@@ -50,14 +53,16 @@ def buscar_solucion_DFS_Rec(nodo, solucion, visitados, limite):
     nodo_inicial = Nodo(estado_inicial)
     nodo = DFS_prof_iter(nodo_inicial, solucion)
 
-    # Mostrar resultado
+    # Mostrar Resultados
     if nodo != None:
         resultado = []
         while nodo.get_padre() != None:
-            resultado.append(nodo.get_padre())
+            resultado.append(nodo.get_datos())
             nodo = nodo.get_padre()
         resultado.append(estado_inicial)
         resultado.reverse()
-        print(resultado)
+        return resultado
     else:
-        print("Solución no Encontrada")
+        return 'Solucion No encontrada'
+    
+print(imprimir())
