@@ -21,19 +21,19 @@ def puzzle_Lineal():
 # Route a Vuelos
 @app.route('/vuelos-en-amplitud', methods=['GET'])
 def vuelos_Amplitud():
-    resultado_vuelos_amplitud= Vuelos.imprimir
+    resultado_vuelos_amplitud= Vuelos.imprimir()
     return jsonify({"Resultado": resultado_vuelos_amplitud})
 
 # Route a DFS
 @app.route('/dfs', methods=['GET'])
 def dfs():
-    resultado_dfs = DFS.imprimir
+    resultado_dfs = DFS.imprimir()
     return jsonify({"Resultado": resultado_dfs})
 
 # Route a DFS recursivo
 @app.route('/busqueda-en-profundidad-recursivo', methods=['GET'])
 def dfs_Recursivo():
-    resultado_dfs_recursivo = DFS_Recursivo.imprimir
+    resultado_dfs_recursivo = DFS_Recursivo.imprimir()
     return jsonify({"Resultado": resultado_dfs_recursivo})
 
 # Route a DFS iterativo
