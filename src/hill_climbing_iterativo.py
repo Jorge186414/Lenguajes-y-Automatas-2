@@ -1,5 +1,3 @@
-# TSP con Hill Climbing Iterativo
-
 import math
 import random
 
@@ -8,7 +6,7 @@ def distancia(coord1, coord2):
     lon1 = coord1[1]
     lat2 = coord2[0]
     lon2 = coord2[1]
-    return math.sqrt((lat1 - lat2)*2 + (lon1 - lon2)*2)
+    return math.sqrt((lat1 - lat2)**2 + (lon1 - lon2)**2)
 
 # Calcular la distancia correcta por una ruta
 def evalua_ruta(ruta):
@@ -23,42 +21,30 @@ def evalua_ruta(ruta):
 
 def i_hill_climbing():
     # Crear ruta inicial aleatoria
-    ruta = []
-    for ciudad in coord:
-        ruta.append(ciudad)
-        mejor_ruta = ruta[:]
-        max_iteraciones = 10
-        
-        while max_iteraciones > 0:
-            mejora = True
-            # Generar nueva ruta aleatoria
-            random.shuffle(ruta)
-            while mejora:
-                mejora = False
-                dist_actual = evalua_ruta(ruta)
-                # Evaluar a los vecinos
-            for i in range(0,len(ruta)):
-                if mejora:
-                    break
-                for j in (0, len(ruta)):
-                    if i!=j:
-                        ruta_tmp = ruta[:]
-                        ruta_tmp = ruta_tmp[i]
-                        ruta_tmp[i] = ruta_tmp[i]
-                        ruta_tmp[j] = ruta_tmp[j]
-                        dist = evalua_ruta(ruta_tmp)
-                        if dist < dist_actual:
-                            # Se encontró un vecino que mejora el resultado
-                            mejora = True
-                            ruta = ruta_tmp[:]
-                            break
-        
-        max_iteraciones = max_iteraciones
-        
-        if evalua_ruta(ruta) < evalua_ruta(mejor_ruta):
-            mejor_ruta = ruta[:]
+    ruta = list(coord.keys())
+    mejor_ruta = ruta[:]
+    max_iteraciones = 10
 
-if __name__ == "_main_":
+    while max_iteraciones > 0:
+        max_iteraciones -= 1
+        mejora = False
+        # Generar nueva ruta aleatoria
+        random.shuffle(ruta)
+        for i in range(0,len(ruta)):
+            for j in range(0, len(ruta)):
+                if i != j:
+                    ruta_tmp = ruta[:]
+                    ruta_tmp[i], ruta_tmp[j] = ruta_tmp[j], ruta_tmp[i]
+                    dist = evalua_ruta(ruta_tmp)
+                    if dist < evalua_ruta(mejor_ruta):
+                        # Se encontró un vecino que mejora el resultado
+                        mejor_ruta = ruta_tmp[:]
+                        mejora = True
+        if not mejora:
+            break
+    return mejor_ruta
+
+if __name__ == "__main__":
     coord = {
         'Jiloyork' :(19.916012, -99.580580),
         'Toluca':(19.289165, -99.655697),
@@ -74,4 +60,4 @@ if __name__ == "_main_":
     
     ruta = i_hill_climbing()
     print(ruta)
-    print("Distancia Total: ", + str(evalua_ruta(ruta)))
+    print("Distancia Total:", evalua_ruta(ruta))
