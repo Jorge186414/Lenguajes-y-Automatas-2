@@ -75,3 +75,39 @@ function obtenerResultadoDijkstra() {
             console.error('Error:', error);
         });
 }
+
+function obtenerResultadoTempladoSimulado() {
+    // Realizar la solicitud GET a la ruta de Flask
+    fetch('/templado-simulado')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("resultado").textContent = JSON.stringify(data.Resultado) // Mostrar la respuesta del servidor
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+function obtenerResultadoHillClimbing() {
+    // Realizar la solicitud GET a la ruta de Flask
+    fetch('/hill-climbing')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("resultado").textContent = JSON.stringify(data.Resultado) // Mostrar la respuesta del servidor
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+function obtenerResultadoHillClimbingIterativo() {
+    // Realizar la solicitud GET a la ruta de Flask
+    fetch('/hill-climbing-iterativo')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("resultado").textContent = JSON.stringify(data.Resultado) // Mostrar la respuesta del servidor
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
