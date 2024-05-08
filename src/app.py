@@ -5,6 +5,9 @@ import DFS
 import DFS_Recursivo
 import DFS_Iterativo
 import Dijkstra
+import Hill_Climbing
+import Hill_Climbing_Iterativo
+import Simulated_Annealing
 
 app = Flask(__name__)
 
@@ -47,6 +50,22 @@ def dfs_Iterativo():
 def dijkstra():
     resultado_dijkstra = Dijkstra.imprimir()
     return jsonify({"Resultado": resultado_dijkstra})
+
+@app.route('/hill-climbing', methods=['GET'])
+def hillClimbing():
+    resultado_hill_climbing = Hill_Climbing.imprimir()
+    return jsonify({"Resultado": resultado_hill_climbing})
+
+@app.route('/hill-climbing-iterativo', methods=['GET'])
+def hillClimbingIterativo():
+    resultado_hill_climbing_iterativo = Hill_Climbing_Iterativo.imprimir()
+    return jsonify({"Resultado": resultado_hill_climbing_iterativo})
+
+# Route a templado simulado
+@app.route('/templado-simulado', methods=['GET'])
+def allin():
+    resultado_templado = Simulated_Annealing.simu()
+    return jsonify({"Resultado": resultado_templado})
 
 if __name__ == '__main__':  
     app.run(debug=False)
