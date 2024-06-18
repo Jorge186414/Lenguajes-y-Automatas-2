@@ -34,8 +34,20 @@ def dijkstra(capitales, conexiones, inicio, fin):
     camino.reverse()
     return camino, distancias[fin]
 
-# Ejemplo de uso
-inicio = 'CHIHUAHUA'
-fin = 'TOLUCA_DE_LERDO'
-camino, distancia = dijkstra(capitales, conexiones, inicio, fin)
-print(f"La ruta más corta de {inicio} a {fin} es: {camino} con una distancia de {distancia} km")
+
+# Solicitar entrada del usuario
+origen = input("Ingrese la capital de origen: ")
+destino = input("Ingrese la capital de destino: ")
+
+# Verificar que las capitales ingresadas existan en los datos
+if origen not in capitales:
+    print(f"Capital de origen '{origen}' no encontrada en los datos.")
+elif destino not in capitales:
+    print(f"Capital de destino '{destino}' no encontrada en los datos.")
+else:
+    camino, distancia = dijkstra(capitales, conexiones, origen, destino)
+    if camino:
+        print(f"La ruta más corta de {origen} a {destino} es: {camino} con una distancia de {distancia} km")
+    else:
+        print(f"No se encontró una ruta de {origen} a {destino}.")
+
