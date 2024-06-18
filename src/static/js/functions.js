@@ -8,7 +8,7 @@ function obtenerResultadoPuzzleLineal() {
         })
         .catch(error => {
             console.error('Error:', error);
-        });
+        });                                                                                                                               
 }
 
 // Funcion para obtener el resultado de Vuelos.py

@@ -1,94 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario con Selectores</title>
+    <title>Formulario con Inputs Autocompletable</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ6jy1Xo7U7UCs4vEp3713ZAepHtWY4PE&callback=initMap"
+        async defer></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
 </head>
+
 <body class="bg-blue-100">
     <div class="flex flex-col items-center pt-6">
         <h1 class="text-2xl font-bold text-blue-800 mb-4">Cálculo de la mejor ruta con Dijkstra</h1>
-        <form class="w-full max-w-md p-6 bg-white rounded-lg shadow-md border border-blue-400">
+        <form id="route-form" class="w-full max-w-md p-6 bg-white rounded-lg shadow-md border border-blue-400">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                <div class="flex flex-col text-center">
-                    <label for="select1" class="mb-2 text-blue-700">Origen</label>
-                    <select id="select1" class="w-full p-2 border border-blue-400 rounded-md bg-blue-50 text-blue-800">
-                        <option value="">Selecciona una Capital</option>
-                        <option value="AGUASCALIENTES">Aguascalientes</option>
-                        <option value="MEXICALI">Mexicali</option>
-                        <option value="LA_PAZ">La Paz</option>
-                        <option value="SAN_FRANCISCO_DE_CAMPECHE">San Francisco de Campeche</option>
-                        <option value="TUXTLA_GUTIERREZ">Tuxtla Gutierrez</option>
-                        <option value="CHIHUAHUA">Chihuahua</option>
-                        <option value="CIUDAD_DE_MEXICO">Ciudad de Mexico</option>
-                        <option value="SALTILLO">Saltillo</option>
-                        <option value="COLIMA">Colima</option>
-                        <option value="VICTORIA_DE_DURANGO">Victoria de Durango</option>
-                        <option value="TOLUCA_DE_LERDO">Toluca de Lerdo</option>
-                        <option value="GUANAJUATO">Guanajuato</option>
-                        <option value="CHILPANCINGO_DE_LOS_BRAVO">Chilpancingo de los Bravo</option>
-                        <option value="PACHUCA_DE_SOTO">Pachuca de soto</option>
-                        <option value="GUADALAJARA">Guadalajara</option>
-                        <option value="MORELIA">Morelia</option>
-                        <option value="CUERNAVACA">Cuernavaca</option>
-                        <option value="TEPIC">Tepic</option>
-                        <option value="MONTERREY">Monterrey</option>
-                        <option value="OAXACA_DE_JUAREZ">Oaxaca de Juarez</option>
-                        <option value="HEROICA_PUEBLA_DE_ZARAGOZA">Heroica Puebla de Zaragoza</option>
-                        <option value="SANTIAGO_DE_QUERETARO">Santiago de Queretaro</option>
-                        <option value="CHETUMAL">Chetumal</option>
-                        <option value="SAN_LUIS_POTOSI">San Luis Potosi</option>
-                        <option value="CULIACAN_ROSALES">Culiacan Rosales</option>
-                        <option value="HERMOSILLO">Hermosillo</option>
-                        <option value="VILLAHERMOSA">Villahermosa</option>
-                        <option value="CIUDAD_VICTORIA">Ciudad Victoria</option>
-                        <option value="TLAXCALA_DE_XICOHTENCATL">Tlaxcala de Xicohtencatl</option>
-                        <option value="XALAPA_ENRIQUEZ">Xalapa Enriquez</option>
-                        <option value="MERIDA">Merida</option>
-                        <option value="ZACATECAS">Zacatecas</option>
-                    </select>
+                <div class="flex flex-col">
+                    <label for="input1" class="mb-2 text-blue-700">Origen</label>
+                    <input id="input1" type="text" name="inicio"
+                        class="w-full p-2 border border-blue-400 rounded-md bg-blue-50 text-blue-800"
+                        placeholder="Escribe para buscar...">
                 </div>
-                <div class="flex flex-col text-center">
-                    <label for="select2" class="mb-2 text-blue-700">Destino</label>
-                    <select id="select2" class="w-full p-2 border border-blue-400 rounded-md bg-blue-50 text-blue-800">
-                        <option value="">Selecciona una Capital</option>
-                        <option value="AGUASCALIENTES">Aguascalientes</option>
-                        <option value="MEXICALI">Mexicali</option>
-                        <option value="LA_PAZ">La Paz</option>
-                        <option value="SAN_FRANCISCO_DE_CAMPECHE">San Francisco de Campeche</option>
-                        <option value="TUXTLA_GUTIERREZ">Tuxtla Gutierrez</option>
-                        <option value="CHIHUAHUA">Chihuahua</option>
-                        <option value="CIUDAD_DE_MEXICO">Ciudad de Mexico</option>
-                        <option value="SALTILLO">Saltillo</option>
-                        <option value="COLIMA">Colima</option>
-                        <option value="VICTORIA_DE_DURANGO">Victoria de Durango</option>
-                        <option value="TOLUCA_DE_LERDO">Toluca de Lerdo</option>
-                        <option value="GUANAJUATO">Guanajuato</option>
-                        <option value="CHILPANCINGO_DE_LOS_BRAVO">Chilpancingo de los Bravo</option>
-                        <option value="PACHUCA_DE_SOTO">Pachuca de soto</option>
-                        <option value="GUADALAJARA">Guadalajara</option>
-                        <option value="MORELIA">Morelia</option>
-                        <option value="CUERNAVACA">Cuernavaca</option>
-                        <option value="TEPIC">Tepic</option>
-                        <option value="MONTERREY">Monterrey</option>
-                        <option value="OAXACA_DE_JUAREZ">Oaxaca de Juarez</option>
-                        <option value="HEROICA_PUEBLA_DE_ZARAGOZA">Heroica Puebla de Zaragoza</option>
-                        <option value="SANTIAGO_DE_QUERETARO">Santiago de Queretaro</option>
-                        <option value="CHETUMAL">Chetumal</option>
-                        <option value="SAN_LUIS_POTOSI">San Luis Potosi</option>
-                        <option value="CULIACAN_ROSALES">Culiacan Rosales</option>
-                        <option value="HERMOSILLO">Hermosillo</option>
-                        <option value="VILLAHERMOSA">Villahermosa</option>
-                        <option value="CIUDAD_VICTORIA">Ciudad Victoria</option>
-                        <option value="TLAXCALA_DE_XICOHTENCATL">Tlaxcala de Xicohtencatl</option>
-                        <option value="XALAPA_ENRIQUEZ">Xalapa Enriquez</option>
-                        <option value="MERIDA">Merida</option>
-                        <option value="ZACATECAS">Zacatecas</option>
-                    </select>
+                <div class="flex flex-col">
+                    <label for="input2" class="mb-2 text-blue-700">Destino</label>
+                    <input id="input2" type="text" name="fin"
+                        class="w-full p-2 border border-blue-400 rounded-md bg-blue-50 text-blue-800"
+                        placeholder="Escribe para buscar...">
                 </div>
             </div>
+            <div class="mt-4">
+                <input type="submit" value="Calcular Ruta"
+                    class="w-full py-2 px-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            </div>
         </form>
+        <div id="map" class="mt-8 w-full h-96"></div>
     </div>
+
+    <script>
+        $(function () {
+            var availableOptions = [
+                {% for city in cities %}
+                    { label: "{{ city.replace('_', ' ').title() }}", id: "{{ city }}" },
+                {% endfor %}
+            ];
+
+            function handleSelect(event, ui) {
+                var inputId = event.target.id;
+                console.log("Seleccionado:", ui.item.label, "con ID:", ui.item.id);
+                $("#" + inputId).data("selected-id", ui.item.id);
+            }
+
+            $("#input1, #input2").autocomplete({
+                source: availableOptions,
+                select: handleSelect
+            });
+
+            $("#route-form").on("submit", function(event) {
+                event.preventDefault();
+                const origen = $("#input1").data("selected-id");
+                const destino = $("#input2").data("selected-id");
+
+                if (!origen || !destino) {
+                    alert("Por favor, selecciona un origen y un destino válido.");
+                    return;
+                }
+
+                $.ajax({
+                    url: '/',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ inicio: origen, fin: destino }),
+                    success: function(response) {
+                        const rutaCoords = response.ruta_coords.map(coord => ({ lat: coord[0], lng: coord[1] }));
+                        const path = new google.maps.Polyline({
+                            path: rutaCoords,
+                            geodesic: true,
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2,
+                        });
+                        path.setMap(map);
+
+                        map.setCenter(rutaCoords[0]);
+
+                        rutaCoords.forEach((coord, index) => {
+                            new google.maps.Marker({
+                                position: coord,
+                                map: map,
+                                title: `Punto ${index + 1}`,
+                            });
+                        });
+                    },
+                    error: function(xhr) {
+                        alert(xhr.responseText);
+                    }
+                });
+            });
+        });
+
+        let map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 6,
+                center: { lat: 23.6345, lng: -102.5528 },
+            });
+        }
+    </script>
 </body>
+
 </html>
