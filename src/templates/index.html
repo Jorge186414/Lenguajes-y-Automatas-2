@@ -1,36 +1,30 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./static/style.css">
-    <title>Prueba de Ejecuacion con Flask</title>
+    <title>Formulario con Selectores</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
-
-    <div id="content-flex">
-        <h1>Metodos de Busqueda</h1>
-        <div id="content-grid">
-            <div id="botones">
-                <button onclick="obtenerResultadoPuzzleLineal()">Puzzle Lineal</button>
-                <button onclick="obtenerResultadoVuelos()">Vuelos</button>
-                <button onclick="obtenerResultadoDFS()">DFS</button>
-                <button onclick="obtenerResultadoDFSRecursivo()">DFS Recursivo</button>
-                <button onclick="obtenerResultadoDFSIterativo()">DFS Iterativo</button>
-                <button onclick="obtenerResultadoDijkstra()">Dijkstra</button>
-                <button onclick="obtenerResultadoHillClimbing()">Hill Climbing</button>
-                <button onclick="obtenerResultadoHillClimbingIterativo()">Hill Climbing Iterativo</button>
-                <button onclick="obtenerResultadoTempladoSimulado()">Templado Simulado</button>
-            </div>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <form class="w-full max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+        <div class="flex justify-center space-x-4">
+            <select class="w-1/2 p-2 border border-gray-300 rounded-md">
+                <option value="">Selecciona una opción</option>
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select>
+            <select class="w-1/2 p-2 border border-gray-300 rounded-md">
+                <option value="">Selecciona una opción</option>
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select>
         </div>
-        <div id="impresion">
-            <p id="resultado"></p>
-        </div>
-    </div>
-
-    <script src="./static/functions.js"></script>
+    </form>
 </body>
 
 </html>
