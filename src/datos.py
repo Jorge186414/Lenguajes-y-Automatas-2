@@ -134,7 +134,8 @@ conexiones = {
     'CUERNAVACA': {
         'TOLUCA_DE_LERDO': 135,
         'CIUDAD_DE_MEXICO': 87,
-        'CHILPANCINGO_DE_LOS_BRAVO': 186
+        'CHILPANCINGO_DE_LOS_BRAVO': 186,
+        'HEROICA_PUEBLA_DE_ZARAGOZA': 146
     },
     'TEPIC': {
         'CULIACAN_ROSALES': 481,
@@ -185,11 +186,14 @@ conexiones = {
     },
     'CULIACAN_ROSALES': {
         'VICTORIA_DE_DURANGO': 461,
-        'TEPIC': 481
+        'TEPIC': 481,
+        'CHIHUAHUA': 739,
+        'HERMOSILLO':689
     },
     'HERMOSILLO': {
         'CHIHUAHUA': 691,
-        'CULIACAN_ROSALES': 689
+        'CULIACAN_ROSALES': 689,
+        'MEXICALI':697
     },
     'VILLAHERMOSA': {
         'TUXTLA_GUTIERREZ': 243,
