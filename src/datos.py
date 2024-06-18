@@ -1,0 +1,231 @@
+# datos.py
+
+capitales = {
+    'AGUASCALIENTES':(21.90984,-102.28609),
+    'MEXICALI': (32.62677, -115.46280),
+    'LA_PAZ': (24.14589, -110.30224),
+    'SAN_FRANCISCO_DE_CAMPECHE': (19.80812, -90.52580),
+    'TUXTLA_GUTIERREZ': (16.76354, -93.10759),
+    'CHIHUAHUA': (28.63176, -106.10878),
+    'CIUDAD_DE_MEXICO': (19.44831, -99.14356),
+    'SALTILLO': (25.47788, -100.97229),
+    'COLIMA': (19.24230, -103.73889),
+    'VICTORIA_DE_DURANGO': (24.02927, -104.62783),
+    'TOLUCA_DE_LERDO': (19.28285, -99.65488),
+    'GUANAJUATO': (21.00719, -101.26326),
+    'CHILPANCINGO_DE_LOS_BRAVO': (17.52505, -99.53101),
+    'PACHUCA_DE_SOTO': (20.08746, -98.77552),
+    'GUADALAJARA':(20.69147,-103.35575),
+    'MORELIA': (19.69871, -101.17933),
+    'CUERNAVACA': (18.92309, -99.23171),
+    'TEPIC': (21.52130, -104.93109),
+    'MONTERREY': (25.65559, -100.28399),
+    'OAXACA_DE_JUAREZ': (17.08498, -96.71465),
+    'HEROICA_PUEBLA_DE_ZARAGOZA': (19.03332, -98.20990),
+    'SANTIAGO_DE_QUERETARO': (20.51202, -100.39224),
+    'CHETUMAL': (18.51541, -88.31357),
+    'SAN_LUIS_POTOSI': (22.15741, -100.99726),
+    'CULIACAN_ROSALES': (24.80497, -107.39449),
+    'HERMOSILLO': (29.04227, -110.93600),
+    'VILLAHERMOSA': (17.98180, -92.96206),
+    'CIUDAD_VICTORIA': (23.75236, -99.11256),
+    'TLAXCALA_DE_XICOHTENCATL': (19.31565, -98.24068),
+    'XALAPA_ENRIQUEZ': (19.60603, -96.89359),
+    'MERIDA': (20.95616, -89.59129),
+    'ZACATECAS': (22.76604, -102.57634),
+}
+
+conexiones = {
+    'AGUASCALIENTES': {
+        'ZACATECAS': 116,
+        'GUADALAJARA': 222
+    },
+    'MEXICALI': {
+        'LA_PAZ': 1350,
+        'HERMOSILLO': 697
+    },
+    'LA_PAZ': {
+        'MEXICALI': 1350
+    },
+    'SAN_FRANCISCO_DE_CAMPECHE': {
+        'VILLAHERMOSA': 382,
+        'CHETUMAL': 420,
+        'MERIDA': 177
+    },
+    'TUXTLA_GUTIERREZ': {
+        'XALAPA_ENRIQUEZ': 648,
+        'OAXACA_DE_JUAREZ': 540,
+        'VILLAHERMOSA': 243
+    },
+    'CHIHUAHUA': {
+        'HERMOSILLO': 691,
+        'SALTILLO': 725,
+        'VICTORIA_DE_DURANGO': 631,
+        'CULIACAN_ROSALES': 739
+    },
+    'CIUDAD_DE_MEXICO': {
+        'TOLUCA_DE_LERDO': 66,
+        'CUERNAVACA': 87
+    },
+    'SALTILLO': {
+        'CHIHUAHUA': 725,
+        'VICTORIA_DE_DURANGO': 513,
+        'ZACATECAS': 374,
+        'MONTERREY': 87
+    },
+    'COLIMA': {
+        'GUADALAJARA': 191,
+        'MORELIA': 475
+    },
+    'VICTORIA_DE_DURANGO': {
+        'CHIHUAHUA': 631,
+        'SALTILLO': 513,
+        'ZACATECAS': 289,
+        'CULIACAN_ROSALES': 461,
+        'TEPIC': 460
+    },
+    'TOLUCA_DE_LERDO': {
+        'PACHUCA_DE_SOTO': 154,
+        'TLAXCALA_DE_XICOHTENCATL': 179,
+        'HEROICA_PUEBLA_DE_ZARAGOZA': 190,
+        'CIUDAD_DE_MEXICO': 66,
+        'CUERNAVACA': 135,
+        'SANTIAGO_DE_QUERETARO': 196,
+        'CHILPANCINGO_DE_LOS_BRAVO': 284,
+        'MORELIA': 236
+    },
+    'GUANAJUATO': {
+        'GUADALAJARA': 277,
+        'SAN_LUIS_POTOSI': 185,
+        'SANTIAGO_DE_QUERETARO': 148,
+        'MORELIA': 176
+    },
+    'CHILPANCINGO_DE_LOS_BRAVO': {
+        'MORELIA': 496,
+        'TOLUCA_DE_LERDO': 284,
+        'CUERNAVACA': 186,
+        'HEROICA_PUEBLA_DE_ZARAGOZA': 180,
+        'OAXACA_DE_JUAREZ': 554
+    },
+    'PACHUCA_DE_SOTO': {
+        'SAN_LUIS_POTOSI': 418,
+        'SANTIAGO_DE_QUERETARO': 223,
+        'TOLUCA_DE_LERDO': 154,
+        'XALAPA_ENRIQUEZ': 280,
+        'HEROICA_PUEBLA_DE_ZARAGOZA': 148,
+        'TLAXCALA_DE_XICOHTENCATL': 127
+    },
+    'GUADALAJARA': {
+        'TEPIC': 205,
+        'ZACATECAS': 351,
+        'AGUASCALIENTES': 222,
+        'GUANAJUATO': 277,
+        'COLIMA': 191,
+        'MORELIA': 280
+    },
+    'MORELIA': {
+        'GUANAJUATO': 176,
+        'SANTIAGO_DE_QUERETARO': 191,
+        'TOLUCA_DE_LERDO': 236,
+        'CHILPANCINGO_DE_LOS_BRAVO': 496,
+        'GUADALAJARA': 280,
+        'COLIMA': 475
+    },
+    'CUERNAVACA': {
+        'TOLUCA_DE_LERDO': 135,
+        'CIUDAD_DE_MEXICO': 87,
+        'CHILPANCINGO_DE_LOS_BRAVO': 186
+    },
+    'TEPIC': {
+        'CULIACAN_ROSALES': 481,
+        'VICTORIA_DE_DURANGO': 460,
+        'GUADALAJARA': 205,
+        'ZACATECAS': 592
+    },
+    'MONTERREY': {
+        'SALTILLO': 87,
+        'CIUDAD_VICTORIA': 284,
+        'SAN_LUIS_POTOSI': 515,
+        'ZACATECAS': 462
+    },
+    'OAXACA_DE_JUAREZ': {
+        'CHILPANCINGO_DE_LOS_BRAVO': 554,
+        'HEROICA_PUEBLA_DE_ZARAGOZA': 341,
+        'XALAPA_ENRIQUEZ': 478,
+        'TUXTLA_GUTIERREZ': 540
+    },
+    'HEROICA_PUEBLA_DE_ZARAGOZA': {
+        'PACHUCA_DE_SOTO': 148,
+        'XALAPA_ENRIQUEZ': 173,
+        'TLAXCALA_DE_XICOHTENCATL': 40,
+        'TOLUCA_DE_LERDO': 190,
+        'CHILPANCINGO_DE_LOS_BRAVO': 180,
+        'OAXACA_DE_JUAREZ': 341,
+        'CUERNAVACA': 146
+    },
+    'SANTIAGO_DE_QUERETARO': {
+        'GUANAJUATO': 148,
+        'SAN_LUIS_POTOSI': 207,
+        'PACHUCA_DE_SOTO': 223,
+        'MORELIA': 191,
+        'TOLUCA_DE_LERDO': 196
+    },
+    'CHETUMAL': {
+        'SAN_FRANCISCO_DE_CAMPECHE': 420,
+        'MERIDA': 384
+    },
+    'SAN_LUIS_POTOSI': {
+        'MONTERREY': 515,
+        'ZACATECAS': 189,
+        'CIUDAD_VICTORIA': 333,
+        'GUANAJUATO': 185,
+        'SANTIAGO_DE_QUERETARO': 207,
+        'PACHUCA_DE_SOTO': 418,
+        'XALAPA_ENRIQUEZ': 660
+    },
+    'CULIACAN_ROSALES': {
+        'VICTORIA_DE_DURANGO': 461,
+        'TEPIC': 481
+    },
+    'HERMOSILLO': {
+        'CHIHUAHUA': 691,
+        'CULIACAN_ROSALES': 689
+    },
+    'VILLAHERMOSA': {
+        'TUXTLA_GUTIERREZ': 243,
+        'XALAPA_ENRIQUEZ': 566,
+        'SAN_FRANCISCO_DE_CAMPECHE': 382
+    },
+    'CIUDAD_VICTORIA': {
+        'MONTERREY': 284,
+        'SAN_LUIS_POTOSI': 333,
+        'XALAPA_ENRIQUEZ': 628
+    },
+    'TLAXCALA_DE_XICOHTENCATL': {
+        'PACHUCA_DE_SOTO': 127,
+        'TOLUCA_DE_LERDO': 179,
+        'HEROICA_PUEBLA_DE_ZARAGOZA': 40
+    },
+    'XALAPA_ENRIQUEZ': {
+        'CIUDAD_VICTORIA': 628,
+        'SAN_LUIS_POTOSI': 660,
+        'TUXTLA_GUTIERREZ': 648,
+        'PACHUCA_DE_SOTO': 280,
+        'HEROICA_PUEBLA_DE_ZARAGOZA': 173,
+        'OAXACA_DE_JUAREZ': 478,
+        'VILLAHERMOSA': 566
+    },
+    'MERIDA': {
+        'SAN_FRANCISCO_DE_CAMPECHE': 177,
+        'CHETUMAL': 384
+    },
+    'ZACATECAS': {
+        'VICTORIA_DE_DURANGO': 289,
+        'SALTILLO': 374,
+        'SAN_LUIS_POTOSI': 189,
+        'AGUASCALIENTES': 116,
+        'GUADALAJARA': 351,
+        'MONTERREY': 462,
+        'TEPIC': 592
+    }    
+}
