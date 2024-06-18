@@ -1,5 +1,5 @@
 # main.py
-
+import folium
 import heapq
 from datos import capitales, conexiones
 
@@ -48,6 +48,18 @@ else:
     camino, distancia = dijkstra(capitales, conexiones, origen, destino)
     if camino:
         print(f"La ruta más corta de {origen} a {destino} es: {camino} con una distancia de {distancia} km")
+        # Crear el mapa centrado en la primera capital del camino
+        mapa = folium.Map(location=capitales[camino[0]], zoom_start=6)
+
+        # Añadir puntos al mapa
+        for capital in camino:
+            folium.Marker(location=capitales[capital], popup=capital).add_to(mapa)
+
+        # Añadir líneas entre los puntos
+        folium.PolyLine([capitales[capital] for capital in camino], color="blue", weight=2.5, opacity=1).add_to(mapa)
+
+        # Guardar el mapa en un archivo HTML
+        mapa.save("ruta_mas_corta.html")
+        print("Mapa guardado como 'ruta_mas_corta.html'")
     else:
         print(f"No se encontró una ruta de {origen} a {destino}.")
-
